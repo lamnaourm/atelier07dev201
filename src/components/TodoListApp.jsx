@@ -41,11 +41,11 @@ export default function TodoListApp() {
     }
 
     const modifAllTermine = () => {
-        setTaches(taches => taches.map(t => ({...t, completed:true})))
+        setTaches(taches => taches.map(t => ({ ...t, completed: true })))
     }
 
     const modifAllEncours = () => {
-        setTaches(taches => taches.map(t => ({...t, completed:false})))
+        setTaches(taches => taches.map(t => ({ ...t, completed: false })))
     }
 
     return (
@@ -79,10 +79,14 @@ export default function TodoListApp() {
                 <div className='list'>
                     {taches.map((t, index) =>
                         <div key={index} className='tache'>
-                            <h4>{t.description}</h4>
-                            {
+                            <h4>{
                                 t.completed ? <AiOutlineCheck /> : <ImCancelCircle />
-                            }
+                            } {t.description}
+                            </h4>
+                            <div className='btns'>
+                                <button><GrUpdate/></button>
+                                <button><AiOutlineDelete/></button>
+                            </div>
                         </div>
                     )}
                 </div>
