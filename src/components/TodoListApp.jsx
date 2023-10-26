@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import { AiOutlineCheck, AiOutlineDelete } from 'react-icons/ai'
 import { ImCancelCircle } from 'react-icons/im'
-import { GrAdd, GrUpdate } from 'react-icons/gr'
+import { GrUpdate } from 'react-icons/gr'
+import AddTache from './AddTache'
+import DeleteTaches from './DeleteTaches'
+import ModifTaches from './ModifTaches'
 
 export default function TodoListApp() {
 
@@ -59,22 +62,9 @@ export default function TodoListApp() {
     return (
         <div className='app'>
             <div className='operations'>
-                <fieldset>
-                    <legend>Ajout</legend>
-                    <input type="text" name="task" id="task" value={task} onChange={(e) => setTask(e.target.value)} />
-                    <button onClick={addTache}><GrAdd /> Add</button>
-                </fieldset>
-                <fieldset>
-                    <legend>Suppression</legend>
-                    <button onClick={deleteAll}><AiOutlineDelete /> Tous</button>
-                    <button onClick={deleteTermine}><AiOutlineDelete /> Terminé</button>
-                    <button onClick={deleteEncours}><AiOutlineDelete /> En cours</button>
-                </fieldset>
-                <fieldset>
-                    <legend>modification</legend>
-                    <button onClick={modifAllTermine}><GrUpdate /> Terminé</button>
-                    <button onClick={modifAllEncours}><GrUpdate /> En cours</button>
-                </fieldset>
+                <AddTache task={task} hchange={(e) => setTask(e.target.value)} addTache={addTache}/>
+                <DeleteTaches deleteAll={deleteAll} deleteTermine={deleteTermine} deleteEncours={deleteEncours}/>
+                <ModifTaches modifAllEncours={modifAllEncours} modifAllTermine={modifAllTermine}/>
             </div>
             <div className='display'>
                 <div className='stats'>
