@@ -1,4 +1,27 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: fit-content;
+}
+
 .tache {
   display: flex;
-  gap: 400px;
+  gap: 300px;
+  justify-content: space-between;
+  background-color: rgb(158, 196, 198);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.tache h4 {
+  margin: 0;
+  padding: 0;
 }
