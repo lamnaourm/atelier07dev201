@@ -48,6 +48,14 @@ export default function TodoListApp() {
         setTaches(taches => taches.map(t => ({ ...t, completed: false })))
     }
 
+    const deleteTache = (ind) =>{
+        setTaches(taches => taches.filter((t, index) => index!== ind))
+    }
+
+    const modifTache = (ind) => {
+        setTaches(taches => taches.map((t, index) => index===ind? {...t, completed:!t.completed} : t))
+    }
+
     return (
         <div className='app'>
             <div className='operations'>
@@ -84,8 +92,8 @@ export default function TodoListApp() {
                             } {t.description}
                             </h4>
                             <div className='btns'>
-                                <button><GrUpdate/></button>
-                                <button><AiOutlineDelete/></button>
+                                <button onClick={() => modifTache(index)}><GrUpdate/></button>
+                                <button onClick={() => deleteTache(index)}><AiOutlineDelete/></button>
                             </div>
                         </div>
                     )}
